@@ -11,6 +11,10 @@ public class UserSteps {
     LoginPage loginPage;
     MainPage mainPage;
 
+    public String username = "tomsmith";
+    public String password = "SuperSecretPassword!";
+
+
     public UserSteps(WebDriver driver) {
         this.driver = driver;
     }
@@ -19,8 +23,8 @@ public class UserSteps {
         mainPage = new MainPage(driver);
         loginPage = new LoginPage(driver);
 
-        loginPage.setUsername("tomsmith")
-                .setPassword("SuperSecretPassword!")
+        loginPage.setUsername(username)
+                .setPassword(password)
                 .clickLogin();
         assertEquals(driver.findElement(By.cssSelector("h2")).getText(), "Secure Area", "Login failed");
 
@@ -31,4 +35,13 @@ public class UserSteps {
         mainPage.clickLogout();
         return this;
     }
+
+    public String getUserName() {
+        return username;
+    }
+
+    public String getUserPassword() {
+        return password;
+    }
+
 }

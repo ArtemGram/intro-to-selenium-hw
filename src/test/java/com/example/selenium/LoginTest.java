@@ -6,7 +6,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void login() {
-        steps.login("tomsmith","SuperSecretPassword!")
+        steps.login(steps.getUserName(),steps.getUserPassword())
                 .logout();
     }
 }

@@ -1,13 +1,11 @@
 package com.example.selenium.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class LoginPage extends BasePage {
-    // TODO define username, password, and login WebElements using @FindBy
 
     @FindBy(how = How.ID, using = "username")
     private WebElement username;
