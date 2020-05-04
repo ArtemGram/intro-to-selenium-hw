@@ -8,30 +8,37 @@ import org.openqa.selenium.support.How;
 public class LoginPage extends BasePage {
 
     @FindBy(how = How.ID, using = "username")
-    private WebElement username;
+    private WebElement usernameTextField;
 
     @FindBy(how = How.ID, using = "password")
-    private WebElement password;
+    private WebElement passwordTextField;
 
     @FindBy(how = How.CSS, using = ".fa")
-    private WebElement login;
+    private WebElement loginButton;
+
+    @FindBy(how = How.CSS , using = "h2")
+    private WebElement element;
+
+    public String getElementText() {
+        return element.getText();
+    }
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
-    public LoginPage setUsername(String text) {
-        username.sendKeys(text);
+    public LoginPage setUsernameTextField(String text) {
+        usernameTextField.sendKeys(text);
         return this;
     }
 
-    public LoginPage setPassword(String text) {
-        password.sendKeys(text);
+    public LoginPage setPasswordTextField(String text) {
+        passwordTextField.sendKeys(text);
         return this;
     }
 
     public MainPage clickLogin() {
-        login.click();
+        loginButton.click();
         return new MainPage(driver);
     }
 }

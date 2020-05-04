@@ -1,6 +1,6 @@
 package com.example.selenium;
 
-import com.example.selenium.steps.UserSteps;
+import com.example.selenium.steps.LoginPageSteps;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     protected WebDriver driver;
-    protected UserSteps steps;
+    protected LoginPageSteps loginPageSteps;
 
     @BeforeClass
     public void setUp() {
@@ -21,7 +21,7 @@ public class BaseTest {
         driver.get("https://the-internet.herokuapp.com/login");
         driver.manage().window().setSize(new Dimension(840, 1027));
 
-        steps = new UserSteps(driver);
+        loginPageSteps = new LoginPageSteps(driver);
     }
 
     @AfterClass
